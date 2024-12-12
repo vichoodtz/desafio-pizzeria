@@ -1,26 +1,23 @@
 
 import React from 'react';
-import { formatCurrency } from '../utils/formatCurrency';
 
-const CardPizza = ({ name, price, ingredients, img }) => {
-   return (
-      <div className="card" style={{ width: '35rem' }}>
-         <img src={img} className="card-img-top" alt={name} />
-         <div className="card-body">
-            <h5 className="card-title">{name}</h5>
-            <p className="card-text">Ingredientes: {ingredients.join(', ')}</p>
-            <p className="card-text">Precio: {formatCurrency(price)}</p>
-            <div className="d-flex gap-2">
-            <button className="btn btn-primary">
-            Ver más
-          </button>
-          <button className="btn btn-secondary">
-            Añadir al carrito
-          </button>
-          </div>
-         </div>
-      </div>
-   );
+const CardPizza = ({ name, price, ingredients, img, desc }) => {
+  return (
+    <div className="card-pizza">
+      <img src={img} alt={name} className="pizza-image" />
+      <h2>{name}</h2>
+      <p>{desc}</p>
+      <h3>Precio: ${price}</h3>
+      <h4>Ingredientes:</h4>
+      <ul>
+        {Array.isArray(ingredients) && ingredients.length > 0 ? (
+          ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>)
+        ) : (
+          <li>No hay ingredientes disponibles.</li>
+        )}
+      </ul>
+    </div>
+  );
 };
 
 export default CardPizza;
