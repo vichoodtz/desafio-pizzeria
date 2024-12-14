@@ -1,10 +1,18 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './Header';
-import CardPizza from './CardPizza';
-import { pizzas } from './pizzas';
+import CardPizza from './cardpizza';
+
 
 const Home = () => {
+  const [pizzas, setPizzas] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/pizzas')
+      .then((response) => response.json())
+      .then((data) => setPizzas(data))
+      .catch((error) => console.error('Error fetching pizzas:', error));
+  }, []);
+
   return (
     <div className="home">
       <Header />
