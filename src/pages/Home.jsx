@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Header from './Header';
-import CardPizza from './cardpizza';
+import Header from '../components/header';
+import CardPizza from '../components/cardpizza';
 
 
 const Home = () => {
@@ -16,21 +16,24 @@ const Home = () => {
   return (
     <div className="home">
       <Header />
-      <div className="pizza-list">
+      <div className="container">
+      <div className="row">
         {Array.isArray(pizzas) && pizzas.length > 0 ? (
           pizzas.map((pizza) => (
+            <div key={pizza.id} className="col-md-4 mb-4">
             <CardPizza
-              key={pizza.id}
               name={pizza.name}
               price={pizza.price}
               ingredients={pizza.ingredients}
               img={pizza.img}
               desc={pizza.desc}
             />
+             </div>
           ))
         ) : (
           <p>No hay pizzas disponibles.</p>
         )}
+         </div>
       </div>
     </div>
   );

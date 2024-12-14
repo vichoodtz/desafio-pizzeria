@@ -4,7 +4,7 @@ import React from 'react';
 const CardPizza = ({ name, price, ingredients, img, desc }) => {
   return (
 
-    <div className="card-pizza mb-4" style={{ width: '12rem', height: '7rem' }}>
+    <div className="card h-100">
       <img src={img} alt={name} className="card-img-top" />
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
