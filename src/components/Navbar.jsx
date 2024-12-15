@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { formatCurrency } from '../utils/formatCurrency';
+import { CartContext } from '../context/CartContext';
+
 
 const Navbar = () => {
-   const total = 25000;
+   const { calculateTotal } = useContext(CartContext);
+  const total = calculateTotal();
    const token = false;
 
    return (
@@ -34,9 +37,9 @@ const Navbar = () => {
             </ul>
             </div>
             <div className="d-flex">
-            <button className="btn btn-primary">
-               🛒 Total: {formatCurrency(total)}
-            </button>
+            <Link to="/cart" className="btn btn-primary">
+            🛒 Total: {formatCurrency(total)}
+          </Link>
             </div>
          </div>
       </nav>

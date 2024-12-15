@@ -10,10 +10,13 @@ import Cart from './pages/Cart.jsx'
 import Pizza from './pages/Pizzas.jsx'
 import Profile from './pages/Profile.jsx'
 import NotFound from './pages/NotFound.jsx'
+import { CartContext } from './context/CartContext.jsx'
+import { CartProvider } from './context/CartContext.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+       <CartProvider>
     <Router>
       <Routes>
         <Route path="/" element={<App />}>
@@ -27,5 +30,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </Route>
       </Routes>
     </Router>
+    </CartProvider>
   </React.StrictMode>,
 )
