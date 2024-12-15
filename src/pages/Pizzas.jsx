@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import CardPizza from '../components/cardpizza';
+import { useParams } from 'react-router-dom';
 
 const Pizza = () => {
+  const { id } = useParams();
   const [pizza, setPizza] = useState(null);
 
   useEffect(() => {

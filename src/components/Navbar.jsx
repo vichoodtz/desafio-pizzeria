@@ -2,12 +2,14 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { formatCurrency } from '../utils/formatCurrency';
 import { CartContext } from '../context/CartContext';
+import { UserContext } from '../context/UserContext';
 
 
 const Navbar = () => {
    const { calculateTotal } = useContext(CartContext);
+   const { token, logout } = useContext(UserContext);
   const total = calculateTotal();
-   const token = false;
+
 
    return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-0 m-0">
@@ -21,7 +23,7 @@ const Navbar = () => {
                      <Link className="nav-link" to="/profile">🔓 Profile</Link>
                      </li>
                      <li className="nav-item">
-                     <Link className="nav-link" to="/logout">🔒 Logout</Link>
+                     <button className="nav-link btn btn-link" onClick={logout}>🔒 Logout</button>
                      </li>
                   </>
                ) : (

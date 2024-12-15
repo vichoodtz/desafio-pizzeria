@@ -1,7 +1,8 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const CardPizza = ({ name, price, ingredients, img, desc }) => {
+const CardPizza = ({ id, name, price, ingredients, img, desc }) => {
   return (
 
     <div className="card h-100">
@@ -20,6 +21,7 @@ const CardPizza = ({ name, price, ingredients, img, desc }) => {
             <li className="list-group-item">No hay ingredientes disponibles.</li>
           )}
         </ul>
+        <Link to={`/pizza/${id}`} className="btn btn-primary mt-3">Ver Detalles</Link>
           </div>
     </div>
   );
