@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import CardPizza from '../components/CardPizza';
+import CardPizza from '../components/Cardpizza';
 import { useParams } from 'react-router-dom';
 
 const Pizza = () => {

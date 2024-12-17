@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import Header from '../components/Header';
-import CardPizza from '../components/CardPizza';
+import CardPizza from '../components/Cardpizza';
 import { CartContext } from '../context/CartContext';
 
 
